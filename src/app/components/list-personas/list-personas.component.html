@@ -1,0 +1,68 @@
+<mat-toolbar color="primary">
+    <span>Listado de Entrada</span>
+</mat-toolbar>
+<mat-card>
+    <mat-card-content><table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef> Apellido </th>
+          <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoDocumento">
+          <th mat-header-cell *matHeaderCellDef> Tipo De Documento </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipoDocumento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="documento">
+          <th mat-header-cell *matHeaderCellDef> Documento </th>
+          <td mat-cell *matCellDef="let element"> {{element.documento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaIngreso">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Ingreso y Hora </th>
+          <td mat-cell *matCellDef="let element"> {{element.fechaIngreso | date:'medium' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="soat">
+          <th mat-header-cell *matHeaderCellDef> Soat </th>
+          <td mat-cell *matCellDef="let element"> {{element.soat}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tecno">
+          <th mat-header-cell *matHeaderCellDef> Tecnomecanica </th>
+          <td mat-cell *matCellDef="let element"> {{element.tecno}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="placa">
+          <th mat-header-cell *matHeaderCellDef> Placa </th>
+          <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="carga">
+          <th mat-header-cell *matHeaderCellDef> Tipo De Carga </th>
+          <td mat-cell *matCellDef="let element"> {{element.carga}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="peso">
+          <th mat-header-cell *matHeaderCellDef> Peso (kg) </th>
+          <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
+        </ng-container>
+      
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+      </mat-card-content>
+</mat-card>
